@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mi Página con Gráfico</title>
+  <!-- Agrega los estilos y scripts de Chart.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.css">
+</head>
+<body>
+  <!-- Barra de navegación -->
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Acerca de</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- Título -->
+  <h1>Mi Página con Gráfico</h1>
+
+  <!-- Cajas de texto -->
+  <div>
+    <label for="texto1">Texto 1:</label>
+    <input type="text" id="texto1">
+  </div>
+
+  <div>
+    <label for="texto2">Texto 2:</label>
+    <input type="text" id="texto2">
+  </div>
+
+  <div>
+    <label for="texto3">Texto 3:</label>
+    <input type="text" id="texto3">
+  </div>
+
+  <!-- Campo para incluir el gráfico -->
+  <div>
+    <canvas id="miGrafico" width="400" height="200"></canvas>
+  </div>
+
+  <!-- Agrega el script de Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
+  <script>
+    // Datos de ejemplo para el gráfico
+    const data = {
+      labels: ['Etiqueta 1', 'Etiqueta 2', 'Etiqueta 3', 'Etiqueta 4', 'Etiqueta 5'],
+      datasets: [{
+        label: 'Datos de ejemplo',
+        data: [10, 20, 30, 40, 50],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }]
+    };
+
+    // Opciones del gráfico
+    const options = {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    };
+
+    // Crea el gráfico
+    const ctx = document.getElementById('miGrafico').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar', // Tipo de gráfico (barra en este caso)
+      data: data,
+      options: options
+    });
+  </script>
+</body>
+</html>

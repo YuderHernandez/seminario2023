@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SG-SST y QC</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.css">
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Acerca de</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </nav>
+  <h1>SG-SST y QC</h1>
+  <h3>Sistema de Gestión de Seguridad y Salud en el Trabajo y Quality check en una linea de produccion</h3>
+
+  <div>
+    <h4>conteo buenos</h4>
+    <label for="texto1" id="variableValue">Texto 1:</label>
+    <!-- <input type="text" id="texto1"> -->
+  </div>
+  
+  <div>
+    <h4>conteo malos</h4>
+    <label for="texto3" id="variableValue2">Texto 3:</label>
+    <!-- <input type="text" id="texto3"> -->
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    socket.on('updateVariable', (newValue) => {
+      document.getElementById('variableValue').innerText = newValue;
+    });
+
+    socket.on('updateVariable2', (newValue) => {
+      document.getElementById('variableValue2').innerText = newValue;
+    });
+
+
+  </script>
+
+<div>
+  <canvas id="miGrafico" width="400" height="200"></canvas>
+</div>
+
+</body>
+</html>
