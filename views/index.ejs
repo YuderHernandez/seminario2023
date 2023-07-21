@@ -55,31 +55,24 @@
 
 <p>*************codigo de solicitudes http********************************
   <pre><code>
-    &lt;ul&gt;
-    &lt;li&gt;Item 1 
-    &lt; b&gt;Se muestra el código
-    &lt;/b&gt;
-    &lt;/li&gt;
-    &lt;li&gt;Item 2 
-    &lt;i&gt;HTML como código
-    &lt;/i&gt;
-    &lt;/li&gt;
-    &lt;li&gt;Item 3
-    &lt;/li&gt;
-    &lt;/ul&gt;
+    import requests <HR>
+    import requests <HR>
+    url = "https://proyectoseminario.azurewebsites.net/about" <HR>
+    data = {'buenos': 220, 'malos': 30 }<HR>
+    json_data = json.dumps(data)<HR>
+    headers = {'Content-Type': 'application/json'}<HR>
+    response = requests.post(url, data=json_data, headers=headers)<HR>
+    
+
   </code></pre>
-    import requests
+    <!-- import requests
     import json
 
     # URL de la API a la que enviarás el JSON
     url = "https://proyectoseminario.azurewebsites.net/about"
 
     # Datos en formato JSON que quieres enviar
-    data = {
-        'buenos': 220,
-        'malos': 30,
-        
-    }
+    data = {'buenos': 220, 'malos': 30 }
 
     # Convertir el diccionario en formato JSON
     json_data = json.dumps(data)
@@ -96,7 +89,7 @@
         print("Respuesta de la API:", response.json())
     else:
         print("Error al enviar el JSON. Código de estado:", response.status_code)
-        print("Respuesta de la API:", response.text)
+        print("Respuesta de la API:", response.text) -->
 </p>
 
 </body>
