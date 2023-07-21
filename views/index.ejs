@@ -9,13 +9,13 @@
 </head>
 <body>
 
-  <nav>
+  <!-- <nav>
     <ul>
-      <li><a href="#">Inicio</a></li>
+      <li><a href="/">Inicio</a></li>
       <li><a href="#">Acerca de</a></li>
       <li><a href="#">Contacto</a></li>
     </ul>
-  </nav>
+  </nav> -->
   <h1>SG-SST y QC</h1>
   <h3>Sistema de Gestión de Seguridad y Salud en el Trabajo y Quality check en una linea de produccion</h3>
 
@@ -49,6 +49,41 @@
 <div>
   <canvas id="miGrafico" width="400" height="200"></canvas>
 </div>
+
+<p>Para instalar ibrerias de solicitudes http en python: pip install requests json</p>
+
+
+<p>*************codigo de solicitudes http********************************
+    import requests
+    import json
+
+    # URL de la API a la que enviarás el JSON
+    url = "https://proyectoseminario.azurewebsites.net/about"
+
+    # Datos en formato JSON que quieres enviar
+    data = {
+        'buenos': 220,
+        'malos': 30,
+        
+    }
+
+    # Convertir el diccionario en formato JSON
+    json_data = json.dumps(data)
+
+    # Establecer las cabeceras adecuadas para indicar que se está enviando JSON
+    headers = {'Content-Type': 'application/json'}
+
+    # Realizar la solicitud POST con requests
+    response = requests.post(url, data=json_data, headers=headers)
+
+    # Verificar la respuesta de la API
+    if response.status_code == 200:
+        print("JSON enviado correctamente.")
+        print("Respuesta de la API:", response.json())
+    else:
+        print("Error al enviar el JSON. Código de estado:", response.status_code)
+        print("Respuesta de la API:", response.text)
+</p>
 
 </body>
 </html>

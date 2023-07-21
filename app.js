@@ -63,10 +63,6 @@ app.get('/sitemap',function(req,res){
 });
  
 
-app.get('/sitemap',function(req,res){
-  res.sendFile(path.join(__dirname+'/sitemap.html'));
-});
-
 
 // Lógica para actualizar la variable y enviarla a través de Socket.io cada 5 segundos
 
