@@ -6,11 +6,36 @@ const logger = require('morgan');
 const bodyParser = require('body-parser')
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
+const CosmosClient = require('@azure/cosmos').CosmosClient
+///////data base cosmos
+const config = require('./config')
+const url = require('url')
+const endpoint = config.endpoint
+const key = config.key
 
 let variableValue = 0;
 let variableValue2 = 0;
 
+const databaseId = config.database.id
+const containerId = config.container.id
+const partitionKey = { kind: 'Hash', paths: ['/partitionKey'] }
 
+const options = {
+      endpoint: endpoint,
+      key: key,
+      userAgentSuffix: 'CosmosDBJavascriptQuickstart'
+    };
+
+const client = new CosmosClient(options)
+
+
+async function createDatabase() {
+  const { database } = await client.databases.createIfNotExists({
+    id: databaseId
+  })
+  console.log(`Created database:\n${database.id}\n`)
+}
+/////////servidor
 const port = 3005
 // Configura la carpeta "public" para servir archivos estáticos (como CSS, JS, imágenes, etc.)
 app.use(express.static('public'));
@@ -25,7 +50,7 @@ app.use(bodyParser.json())
 http.listen(process.env.port || port);
 console.log('Running at Port ' + port);
 
- 
+///////rutas
 app.get('/',function(req,res){
   //res.sendFile(path.join(__dirname+'/index.html'));
   res.render('index');
@@ -33,8 +58,8 @@ app.get('/',function(req,res){
 });
  
 app.get('/about',function(req,res){
-  res.send("hello")
-  res.sendFile(path.join(__dirname+'/about.html'));
+  // res.send("hello")
+  // res.sendFile(path.join(__dirname+'/about.html'));
 });
 
 app.post('/about',(req,res)=>{
@@ -46,7 +71,7 @@ app.post('/about',(req,res)=>{
         // console.log(req.body)
         // const data = await trackModel.create(body)
         let a = req.body
-        variableValue2=a.malos
+        variableValue2=a.paradaE
         io.emit('updateVariable2', variableValue2);
         res.send(a)
         //console.log(a)
@@ -58,13 +83,13 @@ app.post('/about',(req,res)=>{
 }
 );
  
-app.get('/sitemap',function(req,res){
-  res.sendFile(path.join(__dirname+'/sitemap.html'));
+app.get('/datos',function(req,res){
+  res.render('datos');
 });
  
 
 
-// Lógica para actualizar la variable y enviarla a través de Socket.io cada 5 segundos
+////// Lógica para actualizar la variable y enviarla a través de Socket.io cada 5 segundos
 
 setInterval(() => {
   variableValue++;
