@@ -94,4 +94,4 @@ app.get('/datos',function(req,res){
 setInterval(() => {
   variableValue++;
   io.emit('updateVariable', variableValue);
-}, 5000); // Actualizar cada 5 segundos
+}, 10000); // Actualizar cada 5 segundos

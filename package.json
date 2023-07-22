@@ -7,7 +7,7 @@
     "start": "node app.js",
     "dev": "nodemon app.js "
   },
-  "author": "",
+  "author": "Grupo 6",
   "license": "ISC",
   "dependencies": {
     "@azure/cosmos": "^3.17.3",
