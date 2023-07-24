@@ -33,7 +33,7 @@
 
   <div>
     <h4>TOTAL</h4>
-    <label for="texto3" id="variableValue3">Texto 3:</label>
+    <label for="texto4" id="variableValue3">Texto 3:</label>
     <!-- <input type="text" id="texto3"> -->
   </div>
 
@@ -47,11 +47,11 @@
       document.getElementById('variableValue').innerText = newValue;
     });
 
-    socket.on('updateVariable2', (newValue) => {
+    socket.on('updateVariable', (newValue) => {
       document.getElementById('variableValue2').innerText = newValue;
     });
 
-    socket.on('updateVariable3', (newValue) => {
+    socket.on('updateVariable', (newValue) => {
       document.getElementById('variableValue3').innerText = newValue;
     });
 

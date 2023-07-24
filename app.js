@@ -15,6 +15,7 @@ const key = config.key
 
 let variableValue = 0;
 let variableValue2 = 0;
+let variableValue3 = 0;
 
 const databaseId = config.database.id
 const containerId = config.container.id
