@@ -71,7 +71,7 @@ app.post('/about',(req,res)=>{
         // console.log(req.body)
         // const data = await trackModel.create(body)
         let a = req.body
-        variableValue2=a.ParadaE
+        variableValue2=a.Buenos
         io.emit('updateVariable2', variableValue2);
         res.send(a)
         //console.log(a)
