@@ -21,15 +21,23 @@
 
   <div>
     <h4>conteo buenos</h4>
-    <label for="texto1" id="variableValue">Texto 1:</label>
+    <label for="texto1" id="variableValue2">Texto 1:</label>
     <!-- <input type="text" id="texto1"> -->
   </div>
   
   <div>
     <h4>conteo malos</h4>
-    <label for="texto3" id="variableValue2">Texto 3:</label>
+    <label for="texto3" id="variableValue">Texto 3:</label>
     <!-- <input type="text" id="texto3"> -->
   </div>
+
+  <div>
+    <h4>TOTAL</h4>
+    <label for="texto3" id="variableValue3">Texto 3:</label>
+    <!-- <input type="text" id="texto3"> -->
+  </div>
+
+
 
   <script src="/socket.io/socket.io.js"></script>
   <script>
@@ -41,6 +49,10 @@
 
     socket.on('updateVariable2', (newValue) => {
       document.getElementById('variableValue2').innerText = newValue;
+    });
+
+    socket.on('updateVariable3', (newValue) => {
+      document.getElementById('variableValue3').innerText = newValue;
     });
 
 

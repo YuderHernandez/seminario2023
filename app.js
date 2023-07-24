@@ -72,6 +72,8 @@ app.post('/about',(req,res)=>{
         // const data = await trackModel.create(body)
         let a = req.body
         variableValue2=a.Buenos
+        variableValue=a.Malos
+        variableValue3=a.Buenos + a.Malos
         io.emit('updateVariable2', variableValue2);
         res.send(a)
         //console.log(a)
@@ -91,7 +93,7 @@ app.get('/datos',function(req,res){
 
 ////// Lógica para actualizar la variable y enviarla a través de Socket.io cada 5 segundos
 
-setInterval(() => {
-  variableValue++;
-  io.emit('updateVariable', variableValue);
-}, 10000); // Actualizar cada 5 segundos
+// setInterval(() => {
+//   variableValue++;
+//   io.emit('updateVariable', variableValue);
+// }, 10000); // Actualizar cada 5 segundos
