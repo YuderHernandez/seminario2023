@@ -29,7 +29,6 @@ config.items = {
     Estado_Banda: "operando"
 
   }
-  
 }
 
 // config.items = {
