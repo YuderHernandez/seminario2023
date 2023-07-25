@@ -81,6 +81,7 @@ app.get('/guardar',function(req,res){
   config.items.QC.Buenos = variableValue2
   config.items.QC.Malos = variableValue
   config.items.QC.Lote = Date(Date.now())
+
   createDatabase()
   .then(() => readDatabase())
   .then(() => createContainer())
@@ -104,6 +105,7 @@ app.get('/guardar',function(req,res){
   })
   res.render('index');;
 });
+
 
 app.post('/guardar',function(req,res){
     
