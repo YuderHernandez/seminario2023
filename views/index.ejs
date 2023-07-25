@@ -1,60 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>SG-SST y QC</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.css">
+  <link rel="stylesheet" href="estilos.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.css"> -->
 </head>
 <body>
 
-  <nav>
+  <nav >
     <ul>
       <li><a href="/">Inicio</a></li>
       <li><a href="/datos">Datos</a></li>
       
     </ul>
   </nav>
-  <h1>SG-SST y QC</h1>
+  <h1> SG-SST & QC</h1>
   <h3>Sistema de Gestión de Seguridad y Salud en el Trabajo y Quality check en una linea de produccion</h3>
 
-  <div>
-    <h4>conteo buenos</h4>
-    <label for="texto1" id="variableValue2">Texto 1:</label>
-    <!-- <input type="text" id="texto1"> -->
-  </div>
+  <main>
+    <div class="datos_variables">
+      <h4>conteo buenos</h4>
+      <label type="text" id="variableValue2"></label>
+      <!-- <input type="text" id="texto1"> -->
+    </div>
+    
+    <div class="datos_variables">
+      <h4>conteo malos</h4>
+      <label type="text" id="variableValue"></label>
+      <!-- <input type="text" id="texto3"> -->
+    </div>
   
-  <div>
-    <h4>conteo malos</h4>
-    <label for="texto3" id="variableValue">Texto 3:</label>
-    <!-- <input type="text" id="texto3"> -->
-  </div>
+    <div class="datos_variables">
+      <h4>TOTAL</h4>
+      <label type="text" id="variableValue3" ></label>
+      <!-- <input type="text" id="texto3"> -->
+      <hr>
+      <a href="/guardar" >Guardar</a>
+    </div>
+    
+    
+  
+    
+    
+  
 
-  <div>
-    <h4>TOTAL</h4>
-    <label for="texto4" id="variableValue3">Texto 3:</label>
-    <!-- <input type="text" id="texto3"> -->
-  </div>
-
-
+  </main>
+  
 
   <script src="/socket.io/socket.io.js"></script>
   <script>
+    const miBoton = document.getElementById('Guardar_btn1');
     const socket = io();
 
     socket.on('updateVariable', (newValue) => {
       document.getElementById('variableValue').innerText = newValue;
     });
 
-    socket.on('updateVariable', (newValue) => {
+    socket.on('updateVariable2', (newValue) => {
       document.getElementById('variableValue2').innerText = newValue;
     });
 
-    socket.on('updateVariable', (newValue) => {
+    socket.on('updateVariable3', (newValue) => {
       document.getElementById('variableValue3').innerText = newValue;
     });
 
+    miBoton.addEventListener('click', handleClick);
+
+
+    
+    function handleClick() {
+      // alert('¡Has hecho clic en el botón!');
+      // let estado_Btn1 = 1    
+
+      // socket.emit('updateGuardar', estado_Btn1);
+    }
 
   </script>
 
@@ -62,47 +85,21 @@
   <canvas id="miGrafico" width="400" height="200"></canvas>
 </div>
 
-<p>Para instalar librerias de solicitudes http en python: pip install requests json</p>
+<!-- <p>Para instalar librerias de solicitudes http en python: pip install requests json</p>
 
 
 <p>*************codigo de solicitudes http********************************
   <pre><code>
     import requests <BR>
     import requests <BR>
-    url = "https://proyectoseminario.azurewebsites.net/about" <BR>
+    url = "https://proyectoseminario.azurewebsites.net" <BR>
     data = {'buenos': 220, 'malos': 30 }<BR>
     json_data = json.dumps(data)<BR>
     headers = {'Content-Type': 'application/json'}<BR>
     response = requests.post(url, data=json_data, headers=headers)<BR>
     
 
-  </code></pre>
-    <!-- import requests
-    import json
-
-    # URL de la API a la que enviarás el JSON
-    url = "https://proyectoseminario.azurewebsites.net/about"
-
-    # Datos en formato JSON que quieres enviar
-    data = {'buenos': 220, 'malos': 30 }
-
-    # Convertir el diccionario en formato JSON
-    json_data = json.dumps(data)
-
-    # Establecer las cabeceras adecuadas para indicar que se está enviando JSON
-    headers = {'Content-Type': 'application/json'}
-
-    # Realizar la solicitud POST con requests
-    response = requests.post(url, data=json_data, headers=headers)
-
-    # Verificar la respuesta de la API
-    if response.status_code == 200:
-        print("JSON enviado correctamente.")
-        print("Respuesta de la API:", response.json())
-    else:
-        print("Error al enviar el JSON. Código de estado:", response.status_code)
-        print("Respuesta de la API:", response.text) -->
-</p>
-
+  </code></pre></p> -->
+    
 </body>
 </html>
