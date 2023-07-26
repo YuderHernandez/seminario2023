@@ -1,8 +1,8 @@
-
+require('dotenv').config()
 var config = {}
 
-config.endpoint = 'https://storageseminario.documents.azure.com:443/'
-config.key = 'Lbc4iIIY3KV1xakQFyDvGVAU4Ifx534cNfX9hTJgZR7X4qZtfMa9x3FzjwHHB9bDac6sRtwvXpnsACDbs8YUrg=='
+config.endpoint = process.env.endpoint
+config.key = process.env.key
 
 
 config.database = {
