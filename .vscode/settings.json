@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/8805322c-538f-409c-96dc-1668fd5ca684/resourceGroups/G1/providers/Microsoft.Web/sites/webappseminario2023",
+    "appService.deploySubpath": "."
+}
