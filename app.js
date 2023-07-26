@@ -306,37 +306,37 @@ async function queryContainer() {
 //  * Exit the app with a prompt
 //  * @param {string} message - The message to display
 //  */
-// function exit(message) {
-//   console.log(message)
-//   console.log('Press any key to exit')
-//   //process.stdin.setRawMode(true)
-//   process.stdin.resume()
-//   process.stdin.on('data', process.exit.bind(process, 0))
-// }
+function exit(message) {
+  console.log(message)
+  console.log('Press any key to exit')
+  process.stdin.setRawMode(true)
+  process.stdin.resume()
+  process.stdin.on('data', process.exit.bind(process, 0))
+}
 
 
-  createDatabase()
-  .then(() => readDatabase())
-  .then(() => createContainer())
-  .then(() => readContainer())
-  //.then(() => scaleContainer())
-  .then(() => createFamilyItem(config.items.QC))
-  //.then(() => createFamilyItem(config.items.SG_SST))
-  //.then(() => createFamilyItem(config.items.Andersen))
-  //.then(() => createFamilyItem(config.items.Wakefield))
-  .then(() => queryContainer())
-  //.then(() => replaceFamilyItem(config.items.Andersen))
-  //.then(() => queryContainer())
- // .then(() => deleteFamilyItem(config.items.Andersen))
-  .then(() => {
-    // exit(`Completed successfully`)
-    console.log('Completed successfully')
-  })
-  .catch(error => {
-    // exit(`Completed with error ${JSON.stringify(error)}`)
-    console.log(error)
-  })
-  VariableGuardar = 0
+//   createDatabase()
+//   .then(() => readDatabase())
+//   .then(() => createContainer())
+//   .then(() => readContainer())
+//   //.then(() => scaleContainer())
+//   .then(() => createFamilyItem(config.items.QC))
+//   //.then(() => createFamilyItem(config.items.SG_SST))
+//   //.then(() => createFamilyItem(config.items.Andersen))
+//   //.then(() => createFamilyItem(config.items.Wakefield))
+//   .then(() => queryContainer())
+//   //.then(() => replaceFamilyItem(config.items.Andersen))
+//   //.then(() => queryContainer())
+//  // .then(() => deleteFamilyItem(config.items.Andersen))
+//   .then(() => {
+//     // exit(`Completed successfully`)
+//     console.log('Completed successfully')
+//   })
+//   .catch(error => {
+//     // exit(`Completed with error ${JSON.stringify(error)}`)
+//     console.log(error)
+//   })
+//   VariableGuardar = 0
 
 
 
