@@ -50,6 +50,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
+          images:
           app-name: 'proyectoSeminario'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0623B2E5D86C4F739473B39242506156 }}
