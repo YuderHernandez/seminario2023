@@ -1,7 +1,7 @@
 var config = {}
 
-config.endpoint = 'https://cosmosdbseminario.documents.azure.com:443/'
-config.key = 'x55SwtJzSPMqN1x1ScJmeYOsAuJ4vp19ONiM1cO1jEd7mM82uYwgOYBwsT05V0DSzHb9WYJxNDkvACDbhbw1ug=='
+config.endpoint = 'https://dbseminario.documents.azure.com:443/'
+config.key = '3tDITNXb9ukoP3ATCSJ2ug12bbQ175NHuMKcEuhcCXPBN97CZtH4NYuGcjikmJ93R9hwk2EQ5iqpACDbNeKMRQ=='
 
 config.database = {
   id: 'ECCI_DATA'
