@@ -38,6 +38,12 @@ app.get('/',function(req,res){
   res.render('index');
   //__dirname : It will resolve to your project folder.
 });
+
+app.get('/index',function(req,res){
+  //res.sendFile(path.join(__dirname+'/index.html'));
+  res.render('index');
+  //__dirname : It will resolve to your project folder.
+});
  
 app.get('/about',function(req,res){
   // res.send("hello")
