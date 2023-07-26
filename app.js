@@ -33,13 +33,13 @@ http.listen(process.env.port || port);
 console.log('Running at Port ' + port);
 
 ///////rutas
-app.get('/',function(req,res){
-  //res.sendFile(path.join(__dirname+'/index.html'));
-  res.render('index');
-  //__dirname : It will resolve to your project folder.
-});
+// app.get('/',function(req,res){
+//   //res.sendFile(path.join(__dirname+'/index.html'));
+//   res.render('index');
+//   //__dirname : It will resolve to your project folder.
+// });
 
-app.get('/index',function(req,res){
+app.get('/',function(req,res){
   //res.sendFile(path.join(__dirname+'/index.html'));
   res.render('index');
   //__dirname : It will resolve to your project folder.
