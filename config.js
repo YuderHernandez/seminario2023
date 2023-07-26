@@ -1,8 +1,8 @@
 
 var config = {}
 
-config.endpoint = 'https://dbseminario.documents.azure.com:443/'
-config.key = 'U8SJx4LmaLRS37ydsuyhUUCOYJYX2RK9XCU1ZqRO6gWBOvo80XvCSDKgkXcLDnC4HSwnRJu8kR0iACDbnKvzxw=='
+config.endpoint = 'https://storageseminario.documents.azure.com:443/'
+config.key = 'Lbc4iIIY3KV1xakQFyDvGVAU4Ifx534cNfX9hTJgZR7X4qZtfMa9x3FzjwHHB9bDac6sRtwvXpnsACDbs8YUrg=='
 
 
 config.database = {
