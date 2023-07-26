@@ -2,7 +2,7 @@
 var config = {}
 
 config.endpoint = 'https://dbseminario.documents.azure.com:443/'
-config.key = 'U8SJx4LmaLRS37ydsuyhUUCOYJYX2RK9XCU1ZqRO6gWBOvo80XvCSDKgkXcLDnC4HSwnRJu8kR0iACDbnKvzxw'
+config.key = 'U8SJx4LmaLRS37ydsuyhUUCOYJYX2RK9XCU1ZqRO6gWBOvo80XvCSDKgkXcLDnC4HSwnRJu8kR0iACDbnKvzxw=='
 
 
 config.database = {
