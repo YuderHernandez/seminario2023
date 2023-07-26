@@ -75,6 +75,7 @@ app.get('/datos',function(req,res){
 });
 
 app.get('/guardar',function(req,res){
+  res.render('index');
   const fecha = Date.now()
   let serial = "s" + fecha
   config.items.QC.id = serial
@@ -103,7 +104,7 @@ app.get('/guardar',function(req,res){
     // exit(`Completed with error ${JSON.stringify(error)}`)
     console.log(error)
   })
-  res.render('index');;
+  
 });
 
 
