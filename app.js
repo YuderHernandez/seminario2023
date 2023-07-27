@@ -54,6 +54,7 @@ app.post('/about',async(req,res)=>{
   // var a = req.body.
   // res.sendFile(path.join(__dirname+'/about.html'));
    
+  
       try {
         let a = await req.body
         variableValue2=a.Buenos
