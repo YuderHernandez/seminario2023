@@ -14,7 +14,9 @@ const CosmosClient = require('@azure/cosmos').CosmosClient
 let variableValue = 0;
 let variableValue2 = 0;
 let variableValue3 = 0;
-let VariableGuardar=0
+let VariableBuenos = 0;
+let VariableMalos = 0;
+let VariableTotal = 0;
 
 
 
@@ -62,6 +64,10 @@ app.post('/about',async(req,res)=>{
         io.emit('updateVariable', variableValue);
         io.emit('updateVariable2', variableValue2);
         io.emit('updateVariable3', variableValue3);
+        io.emit('updateVariable4', VariableBuenos);
+        io.emit('updateVariable5', VariableMalos);
+        io.emit('updateVariable6', VariableTotal);
+        
         res.send(a)
         config.items.QC.Buenos = variableValue2
         config.items.QC.Malos = variableValue
@@ -105,12 +111,16 @@ app.get('/guardar',function(req,res){
   .then(() => {
     // exit(`Completed successfully`)
     console.log('Completed successfully')
+    io.emit('updateVariable4', VariableBuenos);
+    io.emit('updateVariable5', VariableMalos);
+    io.emit('updateVariable6', VariableTotal);
+        
   })
   .catch(error => {
     // exit(`Completed with error ${JSON.stringify(error)}`)
     console.log(error)
   })
-  
+
 });
 
 
@@ -239,9 +249,8 @@ async function createFamilyItem(itemBody) {
     .database(databaseId)
     .container(containerId)
     .items.upsert(itemBody)
-  console.log(`Created family item with id:\n${itemBody.id}, ${VariableGuardar}\n`)
+  console.log(`Created family item with id:\n${itemBody.id}\n`)
 }
-
 
 
 
@@ -249,12 +258,16 @@ async function createFamilyItem(itemBody) {
  * Query the container using SQL
  */
 async function queryContainer() {
+  VariableBuenos=0
+  VariableMalos=0
+  VariableTotal=0
   console.log(`Querying container:\n${config.container.id}`)
 
   // query to return all children in a family
   // Including the partition key value of country in the WHERE filter results in a more efficient query
   const querySpec = {
-    query: 'SELECT datos.Buenos, datos.Malos FROM datos WHERE datos.Buenos BETWEEN 0 AND 1000000',
+    query: 'SELECT datos.Buenos, datos.Malos FROM datos WHERE datos.Buenos BETWEEN 0 AND 1000000'
+    
     
 }
   const { resources: results } = await client
@@ -265,9 +278,14 @@ async function queryContainer() {
   for (var queryResult of results) {
   let resultString = JSON.stringify(queryResult)
   console.log(`\tQuery returned with ${resultString}\n`)
-  console.log(`\tQuery  key returned with ${JSON.stringify(results[queryResult])}\n`)
+  // console.log(`\tQuery  key returned with ${JSON.stringify(results[queryResult])}\n`)
   console.log(queryResult.Buenos)
   console.log(queryResult.Malos)
+
+  VariableBuenos = VariableBuenos + queryResult.Buenos;
+  VariableMalos = VariableMalos + queryResult.Malos;
+  VariableTotal = VariableMalos + VariableBuenos;
+
   }
 
 }

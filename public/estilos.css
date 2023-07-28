@@ -46,7 +46,7 @@ hr{
     margin: 10px 0; /* Margen superior e inferior */
 }
 
-h1{
+h1, label{
     font-size: 36px; /* Tamaño de fuente en píxeles */
     font-family: "Arial", sans-serif; /* Tipo de fuente y fuentes alternativas */
     color: #333; /* Color del texto */

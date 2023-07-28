@@ -15,38 +15,59 @@
   </nav>
 
   <!-- Título -->
-  <h1>Mi Página con Gráfico</h1>
-
-  <!-- Cajas de texto -->
-  <div>
-    <label for="texto1">Texto 1:</label>
-    <input type="text" id="texto1">
-  </div>
+  <h1>Gráfico</h1>
 
   <div>
-    <label for="texto2">Texto 2:</label>
-    <input type="text" id="texto2">
+    <p id="VariableBuenos">1</p>
+    <p id="VariableMalos">2</p>
+    <p id="VariableTotal">3</p>
   </div>
-
-  <div>
-    <label for="texto3">Texto 3:</label>
-    <input type="text" id="texto3">
-  </div>
-
+ 
   <!-- Campo para incluir el gráfico -->
   <div>
     <canvas id="miGrafico" width="400" height="200"></canvas>
   </div>
 
+  <script src="/socket.io/socket.io.js"></script>
   <!-- Agrega el script de Chart.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.0/chart.min.js"></script>
   <script>
+    let VarBuenos;
+    let VarMalos;
+    let VarTotal;
+    const socket = io();
+    
+    socket.on('updateVariable4', (newValue) => {
+      
+      document.getElementById('VariableBuenos').innerText = newValue;
+      VarBuenos = parseInt(document.getElementById("VariableBuenos").textContent)
+      
+    });
+
+    socket.on('updateVariable5', (newValue) => {
+      
+      document.getElementById('VariableMalos').innerText = newValue;
+      VarMalos = parseInt(document.getElementById("VariableMalos").textContent);
+    });
+
+    socket.on('updateVariable6', (newValue) => {
+      
+      document.getElementById('VariableTotal').innerText = newValue;
+      VarTotal = parseInt(document.getElementById("VariableTotal").textContent);
+    });
+
+       
+    
+    
     // Datos de ejemplo para el gráfico
     const data = {
-      labels: ['Etiqueta 1', 'Etiqueta 2', 'Etiqueta 3', 'Etiqueta 4', 'Etiqueta 5'],
+      labels: ['Buenos', 'Malos', 'Total'],
       datasets: [{
-        label: 'Datos de ejemplo',
-        data: [10, 20, 30, 40, 50],
+        label: 'Datos',
+        data: [
+          VarBuenos,
+          VarMalos,
+          VarTotal],
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1
@@ -62,9 +83,11 @@
           beginAtZero: true
         }
       }
+
     };
 
     // Crea el gráfico
+    
     const ctx = document.getElementById('miGrafico').getContext('2d');
     new Chart(ctx, {
       type: 'bar', // Tipo de gráfico (barra en este caso)
